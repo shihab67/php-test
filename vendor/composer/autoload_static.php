@@ -9,14 +9,12 @@ class ComposerStaticInit082fa6f62dc97089293f09805710eb03
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '6157b075b923803e5ef157aeb43b83bd' => __DIR__ . '/..' . '/tamtamchik/simple-flash/src/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
             'Twig\\' => 5,
-            'Tamtamchik\\SimpleFlash\\' => 23,
         ),
         'S' => 
         array (
@@ -33,10 +31,6 @@ class ComposerStaticInit082fa6f62dc97089293f09805710eb03
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
-        ),
-        'Tamtamchik\\SimpleFlash\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/tamtamchik/simple-flash/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
