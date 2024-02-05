@@ -1,0 +1,73 @@
+{% extends 'layouts/master.twig' %}
+
+{% block title %}
+	Dashboard
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-12 d-flex justify-content-between">
+			<h4>Employees</h4>
+			<a type="button" class="btn btn-primary btn-sm" href="/create">+ Create</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Address</th>
+						<th scope="col">Salary</th>
+						<th scope="col">Action</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for employee in employees %}
+						<tr>
+							<td>
+								{{ loop.index }}
+							</td>
+							<td>{{ employee.name }}</td>
+							<td>{{ employee.address }}</td>
+							<td>{{ employee.salary }}</td>
+							<td>
+								<a type="button" class="btn btn-warning btn-sm" href="/edit?id={{ employee.id }}">Edit</a>
+								<a type="button" class="btn btn-danger btn-sm delete-btn" data-link="/delete?id={{ employee.id }}">Delete</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.delete-btn').on('click', function() {
+				var link = $(this).data('link');
+			
+				Swal.fire({
+					title: 'Are you sure?',
+					text: 'You won\'t be able to revert this!',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#d33',
+					cancelButtonColor: '#3085d6',
+					confirmButtonText: 'Yes, delete it!'
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href = link;
+						}
+					});
+				});
+			});
+	</script>
+{% endblock %}

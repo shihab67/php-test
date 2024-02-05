@@ -1,0 +1,53 @@
+{% extends 'layouts/master.twig' %}
+
+{% block title %}
+	Edit Employee
+{% endblock %}
+
+{% block content %}
+	<h4>Edit Employee</h4>
+
+	<form action="/update" method="POST">
+		<div class="mb-3 row">
+			<label for="name" class="col-sm-2 col-form-label">Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="name" name="name" placeholder="John Doe" value="{{ employee.name ?? '' }}">
+
+				{% if errors['name'] %}
+					<span class="text-danger">{{ errors['name'] }}</span>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label for="address" class="col-sm-2 col-form-label">Address</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="address" name="address" placeholder="Dhaka" value="{{ employee.address ?? '' }}">
+
+
+				{% if errors['address'] %}
+					<span class="text-danger">{{ errors['address'] }}</span>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label for="salary" class="col-sm-2 col-form-label">Salary</label>
+			<div class="col-sm-10">
+				<input type="number" class="form-control" id="salary" name="salary" placeholder="150000" value="{{ employee.salary ?? '' }}">
+
+
+				{% if errors['salary'] %}
+					<span class="text-danger">{{ errors['salary'] }}</span>
+				{% endif %}
+			</div>
+		</div>
+
+		<input type="hidden" name="id" value="{{ employee.id }}">
+
+		<div class="mb-3">
+			<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+		</div>
+
+	</form>
+{% endblock %}
